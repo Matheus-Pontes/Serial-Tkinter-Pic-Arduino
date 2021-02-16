@@ -30,7 +30,7 @@ class Application:
         self.title = Label(root, text='Testing via Serial', bg='sky blue', font='Arial 15', fg='white').pack()
 
         self.config = Frame(root, bg='deep sky blue', relief='groove')
-        self.config.place(relwidth=0.82, relheight=0.3, relx=0.02, rely=0.1)
+        self.config.place(relwidth=0.90, relheight=0.3, relx=0.02, rely=0.1)
 
         # Titulo da tela
         self.titleconfig = Label(self.config, text='Configuration Serial', font="Arial 12", bg='deep sky blue', fg='white')
@@ -173,6 +173,7 @@ class Application:
 root = Tk()
 root.title("Test Serial")
 root.configure(bg='sky blue')
-root.geometry("450x300")
+root.geometry("420x300")
+root.resizable(width=0, height=0) # tela tamanho constante
 APP = Application(root)
 root.mainloop()
