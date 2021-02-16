@@ -17,3 +17,8 @@
     * [Site para download(recomendado versão 'stable')](https://code.visualstudio.com/)  
 * Python 3.+
     * [Site para download](https://www.python.org/)   
+
+## Imagens do Circuito
+![Circuito com Arduino](Imagens/arduino-sensor.png)
+![Circuito com PIC16F877A](Imagens/pic16f877a-sensor.png)
+![Interface](Imagens/interface-py.png)
