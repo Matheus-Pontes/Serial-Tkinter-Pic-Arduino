@@ -1,6 +1,6 @@
 # Serial-Tkinter-Pic-Arduino
 
-![Design com os circuitos e tela em python](/Imagens/Design python-microcontroladores.png)
+![layout - interface e circuitos](/Designpython-microcontroladores.png)
 
 ## :rocket: Tecnologias
 - Python
