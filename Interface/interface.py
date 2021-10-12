@@ -17,32 +17,41 @@
 # está ocorrendo a conversão em kelvin e fahrenheit
 # ================================================
 
-import serial 
+# import serial
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
+
+# colors
+colors = [
+    '#fff',
+    '#000',
+    '#f64740',
+    '#558b6e',
+    '#100b00',
+]
 
 class Application:
     
     def __init__(self, root=None):
         
         # title 
-        self.title = Label(root, text='Testing via Serial', bg='sky blue', font='Arial 15', fg='white').pack()
+        self.title = Label(root, text='Testing via Serial', bg=colors[4], font='Arial 15', fg='white').pack()
 
-        self.config = Frame(root, bg='deep sky blue', relief='groove')
+        self.config = Frame(root, bg=colors[4], relief='groove')
         self.config.place(relwidth=0.90, relheight=0.3, relx=0.02, rely=0.1)
 
         # Titulo da tela
-        self.titleconfig = Label(self.config, text='Configuration Serial', font="Arial 12", bg='deep sky blue', fg='white')
+        self.titleconfig = Label(self.config, text='Configuration Serial', font="Arial 12", bg=colors[4], fg='#fff')
         self.titleconfig.place(x=0, y=0)
 
-        self.port = Label(self.config, text='Port(COM)', font='Arial 10', bg='deep sky blue', fg='white').place(x=5, y=30)
+        self.port = Label(self.config, text='Port(COM)', font='Arial 10', bg=colors[4], fg='white').place(x=5, y=30)
 
         self.gate = ttk.Combobox(self.config, width=10)
         self.gate["values"] = ['COM1', 'COM2', 'COM3', 'COM4', 'COM5', 'COM6', 'COM7']
         self.gate.place(x=5, y=50)
         
-        self.rate = Label(self.config, text='Baud Rate', font='Arial 10', bg='deep sky blue', fg='white').place(x=120,y=30)
+        self.rate = Label(self.config, text='Baud Rate', font='Arial 10', bg=colors[4], fg='white').place(x=120,y=30)
         
         self.baud = ttk.Combobox(self.config, width=10)
         self.baud["values"] = ['NONE', 50, 110, 300, 1200, 2400, 4800, 9600, 19200, 38400, 57600]
@@ -51,36 +60,36 @@ class Application:
         self.button_ok = Button(self.config, text='OK', width=8, command=self.ok).place(x=270, y=20)
         self.button_cancel = Button(self.config, text='CANCEL', width=8, command=self.cancel).place(x=270, y=50)
 
-        self.led = Label(root, text='Testing Led', bg='deep sky blue', fg='white', font='Calibri 11')
+        self.led = Label(root, text='Testing Led', bg=colors[4], fg='white', font='Calibri 11')
         self.led.place(x=35, y=130)
 
         # Botões para ligar e desligar o led
-        self.button_on = Button(root, text='ON', width=5, bg='SeaGreen1', command=self.on)
+        self.button_on = Button(root, text='ON', width=5, bg=colors[3], fg=colors[0],command=self.on)
         self.button_on.place(x=20, y=170)
 
-        self.button_off = Button(root, text='OFF', width=5, bg='firebrick2', command=self.off)
+        self.button_off = Button(root, text='OFF', width=5, bg=colors[2], fg=colors[0], command=self.off)
         self.button_off.place(x=80, y=170)
 
-        self.temp_label = Label(root, text='Testing Sensor(LM35)',bg='deep sky blue', fg='white', font='Calibri 11')
+        self.temp_label = Label(root, text='Testing Sensor(LM35)',bg=colors[4], fg='white', font='Calibri 11')
         self.temp_label.place(x=180,y=130)
       
         # Barras de progresso para leitura dos sensores
         self.tempc = ttk.Progressbar(root, length=80, orient='vertical', maximum=150)
         self.tempc.place(x=175,y=180)
 
-        self.tc = Label(root, text='°C', bg='deep sky blue', fg='white')
+        self.tc = Label(root, text='°C', bg=colors[4], fg='white')
         self.tc.place(x=200,y=160)
 
         self.tempf = ttk.Progressbar(root, length=80, orient='vertical', maximum=302)
         self.tempf.place(x=235,y=180)
 
-        self.tf = Label(root, text='°F', bg='deep sky blue', fg='white')
+        self.tf = Label(root, text='°F', bg=colors[4], fg='white')
         self.tf.place(x=260,y=160)
 
         self.tempk = ttk.Progressbar(root, length=80, orient='vertical', maximum=423)
         self.tempk.place(x=295,y=180)
 
-        self.tk = Label(root, text='K', bg='deep sky blue', fg='white')
+        self.tk = Label(root, text='K', bg=colors[4], fg='white')
         self.tk.place(x=320,y=160)
 
         # Botão para iniciar leitura do sensor 
@@ -88,13 +97,13 @@ class Application:
         self.sensor_button.place(x=340,y=130)
 
         # Labels de temperatura embaixo das barras
-        self.look_tc = Label(root, text='', bg='sky blue', fg='white')
+        self.look_tc = Label(root, text='', bg=colors[4], fg='white')
         self.look_tc.place(x=175,y=260)
 
-        self.look_tf = Label(root, text='', bg='sky blue', fg='white')
+        self.look_tf = Label(root, text='', bg=colors[4], fg='white')
         self.look_tf.place(x=230,y=260)
 
-        self.look_tk = Label(root, text='', bg='sky blue', fg='white')
+        self.look_tk = Label(root, text='', bg=colors[4], fg='white')
         self.look_tk.place(x=292,y=260)
 
     # Open port and initial comunication   
@@ -172,7 +181,7 @@ class Application:
 
 root = Tk()
 root.title("Test Serial")
-root.configure(bg='sky blue')
+root.configure(bg=colors[4])
 root.geometry("420x300")
 root.resizable(width=0, height=0) # tela tamanho constante
 APP = Application(root)
